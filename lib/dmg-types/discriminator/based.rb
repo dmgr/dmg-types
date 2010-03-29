@@ -8,7 +8,7 @@ module DataMapper
       required  true
       
       def self.dump(value, property)
-        value.to_s.gsub /^#{property.model}:*/, ''
+        value.to_s.gsub(/^#{property.model}:*/, '')
       end
       
       def self.load(value, property)
@@ -18,7 +18,7 @@ module DataMapper
       def self.typecast(value, property)
         case value
           when Class then value
-          else property.model.find_const(value.to_s)
+          else load(value.to_s, property)
         end
       end
     end

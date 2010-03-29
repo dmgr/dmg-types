@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{dmg-types}
-  s.version = "0.10.3"
+  s.version = "0.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dawid Marcin Grzesiak"]
@@ -16,12 +16,54 @@ Gem::Specification.new do |s|
     "LICENSE",
      "README.rdoc"
   ]
+  s.files = [
+    "Gemfile",
+     "LICENSE",
+     "README.rdoc",
+     "Rakefile",
+     "VERSION",
+     "dmg-types.gemspec",
+     "lib/dmg-types.rb",
+     "lib/dmg-types/discriminator/based.rb",
+     "lib/dmg-types/discriminator/demodulized.rb",
+     "spec/fixtures/article.rb",
+     "spec/fixtures/bookmark.rb",
+     "spec/fixtures/invention.rb",
+     "spec/fixtures/network_node.rb",
+     "spec/fixtures/person.rb",
+     "spec/fixtures/software_package.rb",
+     "spec/fixtures/ticket.rb",
+     "spec/fixtures/tshirt.rb",
+     "spec/rcov.opts",
+     "spec/spec.opts",
+     "spec/spec_helper.rb",
+     "spec/unit/based_discriminator_spec.rb",
+     "spec/unit/demodulized_discriminator_spec.rb",
+     "tasks/ci.rake",
+     "tasks/metrics.rake",
+     "tasks/spec.rake",
+     "tasks/yard.rake",
+     "tasks/yardstick.rake"
+  ]
   s.homepage = %q{http://github.com/dmgr/dmg-types/tree/master}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{datamapper}
   s.rubygems_version = %q{1.3.6}
   s.summary = %q{DataMapper plugin providing extra data types}
+  s.test_files = [
+    "spec/spec_helper.rb",
+     "spec/unit/demodulized_discriminator_spec.rb",
+     "spec/unit/based_discriminator_spec.rb",
+     "spec/fixtures/tshirt.rb",
+     "spec/fixtures/person.rb",
+     "spec/fixtures/article.rb",
+     "spec/fixtures/software_package.rb",
+     "spec/fixtures/network_node.rb",
+     "spec/fixtures/ticket.rb",
+     "spec/fixtures/bookmark.rb",
+     "spec/fixtures/invention.rb"
+  ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION

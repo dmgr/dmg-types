@@ -59,7 +59,7 @@ group :runtime do
     gem 'activesupport', '>= 2', :git => 'git://github.com/rails/rails.git', :require => nil
   end
 
-  gem 'dm-core',       '~> 0.10.2',     :path => '/home/dmg/Development/Ruby/github/my/dm-core'
+  gem 'dm-core',       '~> 0.10.2'
 end
 
 group :development do

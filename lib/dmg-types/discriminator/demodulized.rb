@@ -15,10 +15,12 @@ module DataMapper
         property.model.find_const(value)
       end
       
-      def self.typecast(value, property)
-        case value
-          when Class then value
-          else load(value.to_s, property)
+      def self.bind(property)
+        property.model.discriminator = lambda do |record|
+          case klass = record[property]
+            when Class then klass
+            else load(klass.to_s, property)
+          end
         end
       end
     end # class DemodulizedDiscriminator

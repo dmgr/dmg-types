@@ -12,7 +12,22 @@ module DataMapper
       end
 
       def self.bind(property)
-        property.model.discriminator = Discriminator.new(property)
+        model           = property.model
+        property_name   = property.name
+        repository_name = property.repository_name
+        
+        model.discriminator = Discriminator.new(property)
+
+        model.class_eval <<-RUBY, __FILE__, __LINE__+1
+          extend Chainable
+          
+          extendable do
+            def inherited(model)
+              super  # setup self.descendants
+              model.default_scope(#{repository_name.inspect}).update(#{property_name.inspect} => model.descendants)
+            end
+          end
+        RUBY
       end
       
       class Discriminator < Model::DiscriminatorAdapter

@@ -15,7 +15,7 @@ module DataMapper
         property.model.discriminator = Discriminator.new(property)
       end
       
-      class Discriminator < DataMapper::Model::Discriminator
+      class Discriminator < Model::DiscriminatorAdapter
         def initialize(property)
           super()
           @property = property
